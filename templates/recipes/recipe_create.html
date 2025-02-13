@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Создать рецепт</title>
-</head>
-<body>
-    <h1>Создать новый рецепт</h1>
-    <form method="post">
-        {% csrf_token %}
-        <!-- Защита от CSRF-атак -->
-        {{ form.as_p }}
-        <!-- Выводим поля формы, обернутые в абзацы -->
-        <button type="submit">Создать</button>
-    </form>
-    <a href="{% url 'recipe_list' %}">Вернуться к списку рецептов</a>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}Создать рецепт{% endblock %}
+
+{% block content %}
+<h2>Создать новый рецепт</h2>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-primary">Сохранить</button>
+  <a href="{% url 'recipe_list' %}" class="btn btn-secondary">Отмена</a>
+</form>
+{% endblock %}
