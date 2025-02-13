@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Рецепты</title>
+</head>
+<body>
+    <h1>Рецепты</h1>
+    <ul>
+        {% for recipe in recipes %}
+            <li>
+                <h2>
+                    <a href="{% url 'recipe_detail' recipe.pk %}">
+                        {{ recipe.title }}
+                    </a>
+                    <!-- Название рецепта является ссылкой на его детальную страницу -->
+                </h2>
+                <p>{{ recipe.description }}</p>
+            </li>
+        {% empty %}
+            <li>Рецептов пока нет.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'recipe_create' %}">Создать новый рецепт</a>
+    <!-- Ссылка для перехода на страницу создания рецепта -->
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ recipe.title }}</title>
+</head>
+<body>
+    <h1>{{ recipe.title }}</h1> <!-- Выводим название рецепта -->
+    <p>{{ recipe.description }}</p> <!-- Выводим описание рецепта -->
+
+    <h2>Ингредиенты</h2>
+    <p>{{ recipe.ingredients }}</p> <!-- Выводим ингредиенты -->
+
+    <h2>Инструкции</h2>
+    <p>{{ recipe.instructions }}</p> <!-- Выводим пошаговые инструкции -->
+
+    <p><small>Создано: {{ recipe.created_at }}</small></p> <!-- Выводим дату создания -->
+    <a href="{% url 'recipe_list' %}">Вернуться к списку рецептов</a>
+</body>
+</html>
